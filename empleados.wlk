@@ -29,18 +29,19 @@ object galvan {
 }
 
 object baigorria {
-  const precioEmpanadas = 15
   var empanadasVendidas = 0
-  var fondo = 0
+  var totalCobrado = 0
   
   method cobrarSueldo() {
-    fondo += self.sueldo()
+    totalCobrado += self.sueldo()
     empanadasVendidas = 0
   }
+  
+  method sueldo() = 15 * empanadasVendidas
   
   method vender(cantidad) {
     empanadasVendidas += cantidad
   }
   
-  method sueldo() = precioEmpanadas * empanadasVendidas
+  method totalCobrado() = totalCobrado
 }
