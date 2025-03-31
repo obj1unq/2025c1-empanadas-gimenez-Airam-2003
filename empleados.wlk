@@ -16,8 +16,12 @@ object gimenez {
 }
 
 object galvan {
-    var fondo  = 248000
+    var fondo  = 0
     var sueldo = 15000
+
+    method sueldo(){
+        return sueldo
+    }
 
     method sueldo(cantidad){
         sueldo = cantidad
@@ -29,16 +33,20 @@ object galvan {
 }
 
 object baigorria {
-    var precioEmpanadas   = 15
+    const precioEmpanadas   = 15
     var empanadasVendidas = 0
     var fondo             = 0
 
     method cobrarSueldo(){
-        fondo += precioEmpanadas * empanadasVendidas
+        fondo += self.sueldo()
         empanadasVendidas = 0
     }
 
-    method sueldo(cantidad){
-        precioEmpanadas = cantidad
+    method vender(cantidad){
+        empanadasVendidas += cantidad
+    }
+
+    method sueldo(){
+        return precioEmpanadas * empanadasVendidas
     }
 }
