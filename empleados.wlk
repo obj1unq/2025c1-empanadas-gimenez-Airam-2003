@@ -4,6 +4,7 @@ object gimenez {
   method pagarSueldo(empleado) {
     empleado.cobrarSueldo()
     fondo -= empleado.sueldo()
+    baigorria.reiniciarEmpanadas()
   }
   
   method cambiarSueldo(empleado, cantidad) {
@@ -34,6 +35,10 @@ object baigorria {
   
   method cobrarSueldo() {
     totalCobrado += self.sueldo()
+    empanadasVendidas = 0
+  }
+  
+  method reiniciarEmpanadas() {
     empanadasVendidas = 0
   }
   
