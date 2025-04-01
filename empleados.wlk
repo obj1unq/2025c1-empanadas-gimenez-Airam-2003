@@ -14,17 +14,38 @@ object gimenez {
 }
 
 object galvan {
-  var fondo = 0
+  var dinero = 0
+  var deuda = 0
   var sueldo = 15000
   
   method sueldo() = sueldo
+  
+  method deuda() = deuda
+  
+  method dinero() = dinero
   
   method sueldo(cantidad) {
     sueldo = cantidad
   }
   
+  method gastar(cantidad) {
+    if (dinero < cantidad) {
+      deuda += (dinero - cantidad).abs()
+      dinero = 0
+    } else {
+      dinero -= cantidad
+    }
+  }
+  
   method cobrarSueldo() {
-    fondo += sueldo
+    const balanceFinanciero = sueldo - deuda
+    
+    if (balanceFinanciero < 0) {
+      deuda -= sueldo
+    } else {
+      dinero += balanceFinanciero
+      deuda = 0
+    }
   }
 }
 
